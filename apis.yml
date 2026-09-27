@@ -1,23 +1,74 @@
 aid: beautyhaul
+
 name: Beautyhaul
-description: 'Beautyhaul is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+
+image: https://cdn.beautyhaul.com/assets/uploads/thumbs/Main_Banner_GACOR_Sep_PIi.__2880.png
+
+description: Beautyhaul is an Indonesian e‑commerce platform specializing in beauty products, offering a wide range of makeup, skincare, fragrance
+  and personal care items. The site emphasizes original, BPOM‑approved products with discounts up to 50% off, catering to both local and multinational
+  brands. It provides online shopping, store pick‑up, and detailed product information, aiming to solve skin concerns and deliver affordable beauty
+  solutions.
+
 url: https://raw.githubusercontent.com/api-evangelist/beautyhaul/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-09-27 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-09-27'
+
 modified: '2026-09-27'
+
 tags:
-- Company
-apis: []
+- e-commerce
+- beauty
+- Indonesia
+- cosmetics
+- online-shopping
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: Hosts
+  url: hosts/beautyhaul-hosts.yml
+- type: Login
+  url: https://www.beautyhaul.com/account/login
+- type: DomainSecurity
+  url: security/beautyhaul-domain-security.yml
 - type: Website
-  url: https://equityzen.com/company/beautyhaul
+  url: https://www.beautyhaul.com
+- type: Blog
+  url: https://www.beautyhaul.com/blog
+
+apis:
+- name: Beautyhaul API
+  description: API for Beautyhaul e‑commerce platform
+  humanURL: https://www.beautyhaul.com/account/login
+  baseURL: null
+  aid: beautyhaul:beautyhaul-api
+
+x-coverage:
+  state: unreadable
+  reason: no-machine-readable-spec
+  detail: OpenAPI spec endpoints returned empty responses, no machine‑readable contract found
+  evidence:
+  - url: https://api.beautyhaul.com/openapi.json
+    status: 200
+  - url: https://api.beautyhaul.com/openapi.yaml
+    status: 200
+  checked: '2026-09-27'
+x-enrichment:
+  date: '2026-09-27'
+  status: enriched
+  artifacts_added: 5
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local
